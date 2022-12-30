@@ -7,9 +7,7 @@ const config = {
     limit: 30, // How many projects to display.
     exclude: {
       forks: true, // Forked projects will not be displayed if set to true.
-      projects: [
-        'csarnataro'
-      ], // These projects will not be displayed. example: ['my-project1', 'my-project2']
+      projects: ['csarnataro'], // These projects will not be displayed. example: ['my-project1', 'my-project2']
     },
   },
   social: {
@@ -25,7 +23,7 @@ const config = {
     website: 'https://csarnataro.github.io',
     phone: '',
     email: 'c.sarnataro@gmail.com',
-    mastodon: 'fosstodon.org/@csarnataro'
+    mastodon: 'fosstodon.org/@csarnataro',
   },
   resume: {
     fileUrl:

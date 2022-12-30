@@ -16,7 +16,7 @@ import {
   FaFacebook,
   FaGlobe,
   FaStackOverflow,
-  FaMastodon
+  FaMastodon,
 } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { skeleton } from '../../helpers/utils';
@@ -26,7 +26,7 @@ const ListItem = ({ icon, title, value, link, skeleton = false, rel }) => {
     <a
       href={link}
       target="_blank"
-      rel={rel || "noreferrer"}
+      rel={`noreferrer ${rel || ''}`}
       className="flex justify-start py-2 px-1 items-center"
     >
       <span className="w-2 m-2">{icon}</span>
@@ -233,6 +233,7 @@ ListItem.propTypes = {
   value: PropTypes.node,
   link: PropTypes.string,
   skeleton: PropTypes.bool,
+  rel: PropTypes.string,
 };
 
 export default Details;
