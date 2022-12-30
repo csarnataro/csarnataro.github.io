@@ -21,12 +21,12 @@ import {
 import PropTypes from 'prop-types';
 import { skeleton } from '../../helpers/utils';
 
-const ListItem = ({ icon, title, value, link, skeleton = false, rel }) => {
+const ListItem = ({ icon, title, value, link, skeleton = false }) => {
   return (
     <a
       href={link}
       target="_blank"
-      rel={`noreferrer ${rel || ''}`}
+      rel="noreferrer"
       className="flex justify-start py-2 px-1 items-center"
     >
       <span className="w-2 m-2">{icon}</span>
@@ -117,7 +117,6 @@ const Details = ({ profile, loading, social, github }) => {
               )}
               {social?.mastodon && (
                 <ListItem
-                  rel="me"
                   icon={<FaMastodon className="mr-2" />}
                   title="Mastodon:"
                   value={social.mastodon}
@@ -233,7 +232,6 @@ ListItem.propTypes = {
   value: PropTypes.node,
   link: PropTypes.string,
   skeleton: PropTypes.bool,
-  rel: PropTypes.string,
 };
 
 export default Details;

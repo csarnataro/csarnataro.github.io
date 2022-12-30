@@ -33,12 +33,11 @@ const config = {
     'JavaScript',
     'React.js',
     'Node.js',
-    'Nest.js',
+    'Tailwind',
+    'Git',
     'MySQL',
     'PostgreSQL',
-    'Git',
     'Docker',
-    'Tailwind',
   ],
   experiences: [
     {
@@ -51,8 +50,8 @@ const config = {
     {
       company: 'Paramount',
       position: 'Senior Software Engineer / Engineering Manager',
-      from: '2016',
-      to: 'Aprile 2021',
+      from: 'November 2014',
+      to: 'April 2021',
       companyLink: 'https://paramount.com',
     },
   ],
@@ -74,8 +73,8 @@ const config = {
   ],
   // Display blog posts from your medium or dev account. (Optional)
   blog: {
-    source: 'dev', // medium | dev
-    username: 'csarnataro', // to hide blog section, keep it empty
+    source: 'medium', // medium | dev
+    username: 'christian.sarnataro', // to hide blog section, keep it empty
     limit: 3, // How many posts to display. Max is 10.
   },
   googleAnalytics: {
