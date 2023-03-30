@@ -1,0 +1,90 @@
+---
+import { Configuration } from "~/models/configuration";
+import { Profile } from "~/models/profile";
+import { getGithubData } from "~/utils/getGithubData";
+import { getGithubRepos } from "~/utils/getGithubRepos";
+import AvatarCard from "./AvatarCard/AvatarCard.astro";
+import Certification from "./Certification/Certification.astro";
+import Details from "./Details/Details.astro";
+import Education from "./Education/Education.astro";
+import Experience from "./Experience/Experience.astro";
+import Projects from "./Projects/Projects.astro";
+import Skills from "./Skills/Skills.astro";
+import ThemeChanger from "./ThemeChanger.astro";
+
+interface Props {
+  config: Configuration;
+  profile: Profile;
+  theme: string;
+}
+
+const { config, profile, theme } = Astro.props;
+
+
+const bgColor = "bg-base-300";
+---
+<div class={`p-4 lg:p-10 min-h-full ${bgColor}`}>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
+    <div class="col-span-1">
+      <div class="grid grid-cols-1 gap-6">
+        {!config.themeConfig.disableSwitch && (
+        <ThemeChanger
+          theme={theme}
+          themeConfig={config.themeConfig}
+        />
+      )}
+        <AvatarCard
+          profile={profile}
+          avatarRing={!config.themeConfig.hideAvatarRing}
+          resume={config.resume}
+        />
+        <Details
+          profile={profile}
+          github={config.github}
+          social={config.social}
+        />
+        <Skills skills={config.skills  || []} />
+        <Experience experiences={config.experiences  || []} />
+        <Education education={config.education  || []} />
+        <Certification certifications={config.certifications || []} />
+      </div>
+    </div>
+    <div class="lg:col-span-2 col-span-1">
+      <div class="grid grid-cols-1 gap-6">
+        <Projects
+          repos={profile.repos}
+          github={config.github}
+        />
+        {/* 
+        <ExternalProject
+        loading={loading}
+        externalProjects={sanitizedConfig.externalProjects}
+        googleAnalytics={sanitizedConfig.googleAnalytics}
+        />
+        <Blog
+        loading={loading}
+        googleAnalytics={sanitizedConfig.googleAnalytics}
+        blog={sanitizedConfig.blog}
+        />
+         */}
+      </div>
+    </div>
+  </div>
+</div>
+<footer class={`p-4 footer ${bgColor} text-base-content footer-center`}>
+  <div class="card compact bg-base-100 shadow">
+    <a
+      class="card-body"
+      href="https://github.com/arifszn/gitprofile"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <div>
+        <p class="font-mono text-sm">
+          Made with{" "}
+          <span class="text-primary">GitProfile</span> and ❤️
+        </p>
+      </div>
+    </a>
+  </div>
+</footer>

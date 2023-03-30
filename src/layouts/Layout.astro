@@ -1,0 +1,30 @@
+---
+import Seo from '~/components/Seo.astro';
+import { Configuration } from '~/models/configuration';
+import { Profile } from '~/models/profile';
+import { getInitialTheme } from '~/utils/getInitialTheme';
+
+export interface Props {
+	config: Configuration;
+	profile: Profile;
+	theme: string;
+}
+
+const { config, profile, theme } = Astro.props;
+
+---
+<!DOCTYPE html>
+<html lang="en" data-theme={theme}>
+	<head>
+		<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+		<meta name="generator" content={Astro.generator} />
+		<Seo slot='head' profile={profile} social={config.social} />	
+	</head>
+	<body>
+		<slot name="body"/>
+	</body>
+</html>
