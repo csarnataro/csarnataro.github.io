@@ -1,0 +1,55 @@
+---
+import {languageColor} from '../../../utils/languageColor';
+
+import { Repo } from '~/models/repo';
+import { Icon } from 'astro-icon';
+
+
+interface Props {
+  repo: Repo;
+}
+
+const { repo } = Astro.props;
+
+---
+<a
+  class="card shadow-lg compact bg-base-100 cursor-pointer"
+  href={repo.html_url}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <div class="flex justify-between flex-col p-8 h-full w-full">
+    <div>
+      <div class="flex items-center">
+        <div class="card-title text-lg tracking-wide flex text-base-content opacity-60">
+          <Icon name="mdi:folder-outline" class="w-4 h-4 mr-2" />
+          <span>{repo.name}</span>
+        </div>
+      </div>
+      <p class="mb-5 mt-1 text-base-content text-opacity-60 text-sm">
+        {repo.description}
+      </p>
+    </div>
+    <div class="flex justify-between text-sm text-base-content text-opacity-60 truncate">
+      <div class="flex flex-grow">
+        <span class="mr-3 flex items-center">
+          <Icon name="ant-design:star-outlined" class="w-4 h-4 mr-2" />
+          <span>{repo.stargazers_count}</span>
+        </span>
+        <span class="flex items-center">
+          <Icon name="ant-design:fork-outlined" class="w-4 h-4 mr-2" />
+          <span>{repo.forks_count}</span>
+        </span>
+      </div>
+      <div>
+        <span class="flex items-center">
+          <div
+            class="w-3 h-3 rounded-full mr-1 opacity-60"
+            style={{ backgroundColor: languageColor(repo.language) }}
+          />
+          <span>{repo.language}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</a>

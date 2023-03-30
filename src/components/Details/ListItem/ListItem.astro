@@ -1,0 +1,24 @@
+---
+import ListItemContent from "./ListItemContent.astro";
+import ListItemWithLink from "./ListItemWithLink.astro";
+
+// const ListItem = ({ icon, title, value, link, skeleton = false })
+interface Props {
+  icon: string;
+  title: string;
+  value?: string;
+  link?: string;
+}
+
+const { icon, title, value, link } = Astro.props;
+---
+
+{
+  link ? (
+    <ListItemWithLink link={link}>
+      <ListItemContent icon={icon} title={title} value={value} link={link} />
+    </ListItemWithLink>
+  ) : (
+    <ListItemContent icon={icon} title={title} value={value} link={link} />
+  )
+}

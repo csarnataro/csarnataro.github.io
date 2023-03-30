@@ -1,0 +1,28 @@
+---
+import { Certification } from '~/models/certification';
+
+interface Props extends Certification{};
+
+const { name, body, year, link } = Astro.props;
+---
+
+<li class="mb-5 ml-4">
+  <div
+    class="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
+    style={{ left: "-4.5px" }}
+  >
+  </div>
+  <div class="my-0.5 text-xs">{year}</div>
+  <div class="mb-4 font-normal">
+    {
+      link ? (
+        <a href={link} target="_blank" rel="noreferrer">
+          {name}
+          </a>
+          ) : (
+            name
+            )
+          }
+  </div>
+  <h3 class="font-semibold">{body}</h3>
+</li>

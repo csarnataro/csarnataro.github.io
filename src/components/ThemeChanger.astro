@@ -1,0 +1,82 @@
+---
+import { Icon } from "astro-icon";
+
+const { theme, themeConfig } = Astro.props;
+
+const themesInDropdown = [
+    themeConfig.defaultTheme,
+    ...themeConfig.themes.filter(
+        (item) => item !== themeConfig.defaultTheme
+    ),
+];
+
+
+---
+ 
+<div
+    class="card overflow-visible shadow-lg compact bg-base-100"
+    x-data={`{
+        themes: ${JSON.stringify(themeConfig.themes)},
+        themesInDropdown: ${JSON.stringify(themesInDropdown)},
+        theme: '${theme}',
+        changeTheme(selectedTheme) {
+            this.theme = selectedTheme;
+            document.activeElement.blur(); // to close the dropdown on click
+            return (e) => {
+                e.preventDefault();
+                document.querySelector('html').setAttribute('data-theme', selectedTheme);
+                typeof window !== 'undefined' && localStorage.setItem('gitprofile-theme', selectedTheme);
+            }            
+        }
+    }`}
+>
+    <div class="flex-row items-center space-x-4 flex pl-6 pr-2 py-4">
+        <div class="flex-1">
+            <h5 class="card-title">
+                <span class="text-base-content opacity-70">Theme</span>
+            </h5>
+            <span 
+                class="text-base-content text-opacity-40 capitalize text-sm" 
+                x-text={`theme === '${themeConfig.defaultTheme}' ? 'default' : theme`}
+            ></span>
+        </div>
+        <div class="flex-0">
+            <div title="Change Theme" class="dropdown dropdown-end">
+                <div
+                    tabindex={0}
+                    class="btn btn-ghost m-1 normal-case opacity-50 text-base-content"
+                >
+                    <Icon name="ant-design:control-outlined" class="inline-block w-5 h-5 stroke-current md:mr-2" />
+                    <span class="hidden md:inline"
+                    
+                    >Change Theme</span>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 1792 1792"
+                        class="inline-block w-4 h-4 ml-1 fill-current"
+                    >
+                        <path
+                            d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z"
+                        ></path>
+                    </svg>
+                </div>
+                <div
+                    tabindex={0}
+                    class="dropdown-content mt-16 overflow-y-auto shadow-2xl top-px absolute max-h-96 w-52 rounded-lg bg-base-200 text-base-content"
+                >
+                    <ul class="p-4 menu compact" x-ref="panel">
+                        <template x-for="(currentTheme, i) in themesInDropdown">
+                            <li>
+                                <a x-on:click="changeTheme(currentTheme)">
+                                    <span class="opacity-60 capitalize"                                        
+                                        x-text={` currentTheme === '${themeConfig.defaultTheme}' ? 'default' : currentTheme `}>
+                                    </span>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

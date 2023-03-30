@@ -1,0 +1,35 @@
+---
+import { Education } from "~/models/education";
+import ListItem from "./ListItem/ListItem.astro";
+
+interface Props {
+  education: Education[];
+}
+
+const { education } = Astro.props;
+---
+
+{
+  education?.length !== 0 && (
+    <div class="card shadow-lg compact bg-base-100">
+      <div class="card-body">
+        <div class="mx-3">
+          <h5 class="card-title">
+            <span class="text-base-content opacity-70">Education</span>
+          </h5>
+        </div>
+        <div class="text-base-content text-opacity-60">
+          <ol class="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
+            {education.map((item, index) => (
+              <ListItem
+                time={`${item.from} - ${item.to}`}
+                degree={item.degree}
+                institution={item.institution}
+              />
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  )
+}
