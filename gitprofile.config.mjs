@@ -45,14 +45,14 @@ const config = {
       position: 'Staff Software Engineer',
       from: 'May 2021',
       to: 'Present',
-      companyLink: 'https://arduino.cc',
+      companyLink: 'https://www.arduino.cc',
     },
     {
       company: 'Paramount',
       position: 'Senior Software Engineer / Engineering Manager',
       from: 'November 2014',
       to: 'April 2021',
-      _companyLink: 'https://paramount.com',
+      companyLink: 'https://www.paramount.com',
     },
   ],
   /* certifications: [
@@ -65,7 +65,7 @@ const config = {
   ], */
   education: [
     {
-      institution: 'Università degli Studi di Milano (Italy)',
+      institution: '110/110 Cum Laude - Università degli Studi di Milano (Italy)',
       degree: 'Master Degree in Computer Science',
       from: '1995',
       to: '2001',
