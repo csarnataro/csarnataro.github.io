@@ -12,14 +12,12 @@ const config = {
   },
   social: {
     linkedin: 'sarnataro',
-    twitter: 'c_sarnataro',
     facebook: '',
     instagram: '',
     dribbble: '',
     behance: '',
     medium: 'christian.sarnataro',
     dev: 'csarnataro',
-    stackoverflow: '7381554/christian-sarnataro', // format: userid/username
     website: 'https://csarnataro.github.io',
     phone: '',
     email: '',
