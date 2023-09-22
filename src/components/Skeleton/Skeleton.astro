@@ -1,0 +1,24 @@
+---
+export interface Props {
+  width: number;
+  height: number;
+  style: any;
+  shape: string;
+  className: string;
+}
+// export interface Props {
+// 	title: string;
+// 	body: string;
+// 	href: string;
+// }
+
+const { width, height, style, shape = "rounded-full", className } = Astro.props;
+---
+
+<div
+  class={`bg-base-300 animate-pulse ${shape}${
+    className ? ` ${className}` : ""
+  }${width ? ` ${width}` : ""}${height ? ` ${height}` : ""}`}
+  style={style}
+>
+</div>
