@@ -1,0 +1,52 @@
+---
+interface Props {
+    date: Date;
+}
+
+const { date } = Astro.props;
+---
+
+<script>
+    const timeRanges = {
+        year: 365 * 24 * 60 * 60 * 1000,
+        month: (365 * 24 * 60 * 60 * 1000) / 12,
+        day: 24 * 60 * 60 * 1000,
+        hour: 60 * 60 * 1000,
+        minute: 60 * 1000,
+        second: 1000,
+        millisecond: 1,
+    };
+    function formatDate(date) {
+        const formatter = new Intl.RelativeTimeFormat("en", {
+            numeric: "auto",
+            style: "long",
+        });
+        const now = new Date();
+        const diffInMillis = date.getTime() - now.getTime();
+
+        let distance = date.toDateString();
+        // iterate through all time stamps
+        for (var range in timeRanges) {
+            // if diffInMillis's value is greater than particular timestamp unit's total millisecond value, format accordingly
+            if (
+                Math.abs(diffInMillis) > timeRanges[range] ||
+                range == "millisecond"
+            ) {
+                distance = formatter.format(
+                    Math.round(diffInMillis / timeRanges[range]),
+                    range as any,
+                );
+                break;
+            }
+        }
+        return distance;
+    }
+
+    window.formatDate = formatDate; // to be used by alpine
+</script>
+<span
+    x-data={`{formattedDate: formatDate(new Date('${date}'))}`}
+    x-text="formattedDate"
+>
+    <slot />
+</span>

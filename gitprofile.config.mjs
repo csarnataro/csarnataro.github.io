@@ -4,10 +4,10 @@ const config = {
   github: {
     username: 'csarnataro', // Your GitHub org/user name. (Required)
     sortBy: 'updated', // stars | updated
-    limit: 30, // How many projects to display.
+    limit: 10, // How many projects to display.
     exclude: {
       forks: true, // Forked projects will not be displayed if set to true.
-      projects: ['csarnataro'], // These projects will not be displayed. example: ['my-project1', 'my-project2']
+      projects: ['csarnataro', 'eredimonticelli-site'], // These projects will not be displayed. example: ['my-project1', 'my-project2']
     },
   },
   social: {
@@ -70,18 +70,10 @@ const config = {
     },
   ],
   // Display blog posts from your medium or dev account. (Optional)
-  blog: [{
+  blog: {
     source: 'medium', // medium | dev
     username: 'christian.sarnataro', // to hide blog section, keep it empty
     limit: 3, // How many posts to display.
-  }],
-  googleAnalytics: {
-    id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
-  },
-  // Track visitor interaction and behavior. https://www.hotjar.com
-  hotjar: {
-    id: '',
-    snippetVersion: 6,
   },
   themeConfig: {
     defaultTheme: 'winter',

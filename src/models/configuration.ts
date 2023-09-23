@@ -28,7 +28,7 @@ export type Configuration = {
   // externalProjects: config?.externalProjects || [],
   certifications?: Certification[],
   education?: Education[],
-  blog?: Blog[],
+  blog?: Blog,
   // blog: {
   //   source: config?.blog?.source,
   //   username: config?.blog?.username,
