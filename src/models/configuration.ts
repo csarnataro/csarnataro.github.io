@@ -1,7 +1,8 @@
-import { Certification } from "./certification";
-import { Education } from "./education";
-import { Experience } from "./experience";
-import { GitHub } from "./github";
+import type { Blog } from "./blog";
+import type { Certification } from "./certification";
+import type { Education } from "./education";
+import type { Experience } from "./experience";
+import type { GitHub } from "./github";
 
 export type Configuration = {
   github: GitHub;
@@ -27,6 +28,7 @@ export type Configuration = {
   // externalProjects: config?.externalProjects || [],
   certifications?: Certification[],
   education?: Education[],
+  blog?: Blog,
   // blog: {
   //   source: config?.blog?.source,
   //   username: config?.blog?.username,

@@ -4,6 +4,7 @@ import type { Profile } from "~/models/profile";
 import { getGithubData } from "~/utils/getGithubData";
 import { getGithubRepos } from "~/utils/getGithubRepos";
 import AvatarCard from "./AvatarCard/AvatarCard.astro";
+import Blog from "./Blog/Blog.astro";
 import Certification from "./Certification/Certification.astro";
 import Details from "./Details/Details.astro";
 import Education from "./Education/Education.astro";
@@ -60,13 +61,11 @@ const bgColor = "bg-base-300";
         loading={loading}
         externalProjects={sanitizedConfig.externalProjects}
         googleAnalytics={sanitizedConfig.googleAnalytics}
-        />
+        />*/}
         <Blog
-        loading={loading}
-        googleAnalytics={sanitizedConfig.googleAnalytics}
-        blog={sanitizedConfig.blog}
+        blog={config.blog}
         />
-         */}
+        
       </div>
     </div>
   </div>
