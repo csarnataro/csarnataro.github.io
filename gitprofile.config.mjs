@@ -70,11 +70,11 @@ const config = {
     },
   ],
   // Display blog posts from your medium or dev account. (Optional)
-  blog: {
+  blog: [{
     source: 'medium', // medium | dev
     username: 'christian.sarnataro', // to hide blog section, keep it empty
-    limit: 3, // How many posts to display. Max is 10.
-  },
+    limit: 3, // How many posts to display.
+  }],
   googleAnalytics: {
     id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
   },

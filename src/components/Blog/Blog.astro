@@ -1,0 +1,11 @@
+---
+import { getMediumPost } from '@arifszn/blog-js';
+
+const article = await getMediumPost({user: 'christian.sarnataro'});
+
+console.log('****')
+console.log(article)
+console.log('****')
+
+---
+<pre>{JSON.stringify(article, null, 2)}</pre> 
