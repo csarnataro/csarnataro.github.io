@@ -1,4 +1,4 @@
-import { Repo } from "~/models/repo";
+import type { Repo } from "~/models/repo";
 
 async function getGithubRepos({fetch, githubData, config}): Promise<Repo[]> {
 

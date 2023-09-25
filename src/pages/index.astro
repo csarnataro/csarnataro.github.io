@@ -3,10 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import GitProfile from '~/components/GitProfile.astro';
 
 import config from '../../gitprofile.config.mjs';
-import { Profile } from '~/models/profile';
+import type { Profile } from '~/models/profile';
 import { getGithubData } from '~/utils/getGithubData';
 import { getGithubRepos } from '~/utils/getGithubRepos';
-import { getInitialTheme } from '~/utils/getInitialTheme';
 
 const data = await getGithubData({fetch, config});
 const repos = await getGithubRepos({fetch, githubData: data, config});
@@ -20,8 +19,7 @@ const profile: Profile = {
   repos,
 };
 
-const theme = getInitialTheme(config.themeConfig);
-
+const theme = config.themeConfig.defaultTheme;
 ---
 
 <Layout config={config} profile={profile} theme={theme}>

@@ -1,8 +1,7 @@
 ---
-import Seo from '~/components/Seo.astro';
-import { Configuration } from '~/models/configuration';
-import { Profile } from '~/models/profile';
-import { getInitialTheme } from '~/utils/getInitialTheme';
+import Seo from "~/components/Seo.astro";
+import type { Configuration } from "~/models/configuration";
+import type { Profile } from "~/models/profile";
 
 export interface Props {
 	config: Configuration;
@@ -11,20 +10,38 @@ export interface Props {
 }
 
 const { config, profile, theme } = Astro.props;
-
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en" data-theme={theme}>
 	<head>
 		<meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.json" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/manifest.json" />
 		<meta name="generator" content={Astro.generator} />
-		<Seo slot='head' profile={profile} social={config.social} />	
-	</head>
+		<Seo slot="head" profile={profile} social={config.social} />
+		<style>
+			body {
+				/* to kinda hide FOUC when switching to the selected theme */
+				animation: fadeInAnimation ease 0.5s;
+				animation-iteration-count: 1;
+				animation-fill-mode: forwards;
+			}
+
+			@keyframes fadeInAnimation {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+		</style></head
+	>
+
 	<body>
-		<slot name="body"/>
+		<slot name="body" />
 	</body>
 </html>
