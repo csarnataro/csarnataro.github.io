@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon";
 
-const { theme, themeConfig } = Astro.props;
+const { themeConfig, theme } = Astro.props;
 
 const themesInDropdown = [
     themeConfig.defaultTheme,
@@ -10,8 +10,23 @@ const themesInDropdown = [
     ),
 ];
 
-
 ---
+<script>
+
+function getInitialTheme(defaultTheme) {
+    if (
+        typeof window !== 'undefined' &&
+        !(localStorage.getItem('gitprofile-theme') === null)
+    ) {
+        let theme = localStorage.getItem('gitprofile-theme');
+        return theme;
+    }
+
+    return defaultTheme;
+};
+window.getInitialTheme = getInitialTheme;
+</script>
+
 <div
     class="card overflow-visible shadow-lg compact bg-base-100"
     x-data={`{
@@ -28,6 +43,11 @@ const themesInDropdown = [
             }            
         }
     }`}
+    x-init={`
+        theme = getInitialTheme('${themeConfig.defaultTheme}')
+        document.querySelector('html').setAttribute('data-theme', theme);
+
+    `}
 >
     <div class="flex-row items-center space-x-4 flex pl-6 pr-2 py-4">
         <div class="flex-1">
@@ -66,7 +86,7 @@ const themesInDropdown = [
                     <ul class="p-4 menu compact" x-ref="panel">
                         <template x-for="(currentTheme, i) in themesInDropdown">
                             <li>
-                                <a x-on:click="changeTheme(currentTheme)">
+                                <a x-on:click="changeTheme(currentTheme)" x-bind:class="theme === currentTheme ? 'active' : ''">
                                     <span class="opacity-60 capitalize"                                        
                                         x-text={` currentTheme === '${themeConfig.defaultTheme}' ? 'default' : currentTheme `}>
                                     </span>
