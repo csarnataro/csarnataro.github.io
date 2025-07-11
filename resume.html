@@ -1,60 +1,277 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Sarnataro - Senior Software Engineer</title>
     <style>
     :root {
-      font-size: 1.25rem;
       --symbols-color: #ddd;
+      --symbols-color-hover: #666;
+    }
+    h1, h2 {
+      font-size: 1.17em;
+    }
+    body {
+      padding-top: 2rem;
     }
     * {
       font-family: "Lucida Console", "Courier New", monospace;
       color: #333;
     }
-    h1 > *:first-child {
-      color: red;
+    *:hover::before,
+    *:hover::after {
+      color: var(--symbols-color-hover);
     }
-    _h1::before {
-      content: '#';
+    li::before, 
+    strong::before, 
+    strong::after, 
+    em::before, 
+    em::after, 
+    h1::before, 
+    h2::before,
+    h3::before,
+    blockquote::before {
       color: var(--symbols-color);
+      font-weight: 800;
+    }
+    code::after,
+    code::before {
+      color: var(--symbols-color-hover);
+      font-weight: 800;
+    }
+    code {
+      display: inline;
+      background-color: var(--symbols-color);
+      padding: 1px;
+      border-radius: 6px;
+    }
+    h1::before {
+      content: '#';
     }
     h2::before {
       content: '##';
-      color: var(--symbols-color);
     }
     h3::before {
       content: '### ';
-      color: var(--symbols-color);
     }
     blockquote {
-      margin: 1rem 0;
+      margin: 1rem 1.25rem;
+      text-indent: -1.2rem;
     }
     blockquote::before {
       content: '>';
-      color: var(--symbols-color);
     }
+    code::after,
+    code::before {
+      content: '`';
+    }
+    strong::after,
+    strong::before {
+      content: '**';
+    }
+    em::after,
+    em::before {
+      content: '*';
+    }
+
+    a {
+      text-decoration: none;
+    }
+    a > span:last-child {
+      text-decoration: underline;  
+    }
+
+    li {
+      padding-top: 1rem;
+      list-style: none;
+    }
+    li > p {
+      margin-left: 1rem;
+    }
+    li::before {
+      content: '*';
+    }
+    strong, em {
+      display: block;
+      clear: left;
+      margin-left: 1rem;
+    }
+    @media (min-width: 576px) {
+      body {
+        max-width: 66vw;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 2em; 
+      }
+      h2 {
+        font-size: 1.5em;
+      }
+      strong, em {
+        display: initial;
+        margin-left: initial;
+      }
+    }
+
+    @media (min-width: 768px) {  }
+
+    @media (min-width: 992px) { 
+    }
+
+    @media (min-width: 1200px) { }
+
+    @media (min-width: 1400px) { }
+
     </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   </head>
   <body>
     <h1>
-      <span>#</span>
-      <span>
       Christian Sarnataro
-      </span>
     </h1>
     <h2>
       Senior Software Engineer
     </h2>
     <blockquote cite=".">
       I'm a software engineer with more than 15 years of experience in web and mobile development for mid-to-large organizations. I do consider myself a passionate developer, always trying to stay up-to-date with the latest technologies and always keen to learn new things. In my career I've mastered enough languages and tools that I can learn anything quickly.
- 
+    <br> <br>
+      <code>JavaScript</code>
+      <code>TypeScript</code>
+      <code>React.js</code>
+      <code>Node.js</code>
+      <code>Elixir</code>
+      <code>Java</code>
+      <code>Flutter</code>
+      <code>Git</code>
+      <code>SQL</code>
+      <code>Arduino</code>
     </blockquote>
-    <h3>Work Experience</h3>
+    <h3>
+      Work Experience
+    </h3>
     <ul>
       <li>
+        May 2021 - current: 
+        <strong>Senior software developer</strong> 
+        <em>Arduino</em> 
+        <p>Working on the front-end of Arduino IoT Cloud web platform, providing thousands of users with real time integration between Arduino boards and the Cloud. Public speaker about Arduino IoT Cloud platform.</p>
+      </li>
+      <li>
+        Jul 2015 – April 2021	
+        <strong>Senior web developer / Web architect</strong>
+        <em>Paramount</em>
+        <p>Worked as a web architect, mainly on the backend of a proprietary web platform, supporting 100+ Paramount's  websites worldwide (e.g, MTV, Paramount, Comedy Central, Nickelodeon, SouthPark)</p>
+      </li>
+      <li>
+        Nov 2014 – Jul 2015	
+        <strong>Android developer</strong>
+        <em>Paramount (previously Viacom Intl. Italia)</em>
+        <p>Developed PlayPlex, a worldwide distributed video-centric Android app. Developed different video and music-centric Android apps for MTV Italy.</p>
+      </li>
+      <li>
+        Jan 2012 – Oct 2014	
+        <strong>Freelancer</strong>
+        <ul>
+          <li>
+            <strong>JEE trainer</strong> for Ericsson Italy
+          </li>
+          <li>
+            <strong>Java architect & developer</strong> for SEEG – Gabon
+          </li>
+          <li>
+            <strong>Java developer</strong> for Vodafone Engineering Italy
+          </li>
+        </ul>
+      </li>
+      <li>
+        Dec 2006 – May 2011
+        <strong>Senior Software Developer</strong>
+        <em>Altran Italia S.p.A.</em>
+        <p>Designed and developed Web/J2EE backend applications for several clients (Giorgio Armani S.p.A., Vodafone Italy and others). Analysis and development of a Credit Card Payment Gateway for Vodafone Italy.</p>
 
       </li>
+      <li>
+        Feb 2001 – Dec 2006	
+        <strong>Software Developer</strong>
+        <p>Worked mainly as a Java developer on web and backend applications.</p>
+      </li>
+    </ul>
+    <h3> Education</h3>
+    <ul>
+      <li>
+        2001	
+        <strong>Master degree in Computer Science</strong>
+        <em>Università degli Studi di Milano – Milan, Italy</em>
+        <p>Full marks with honors (110/110 cum laude)</p>
+      </li>
+    </ul>
+    <h3>
+      Continuing professional education
+    </h3>
+    <ul>
+      <li>
+        2022	
+        <strong>RxJS Masterclass</strong>
+        <em>Ultimate Courses (online)</em>
 
+      </li>
+      <li>
+        2021	
+        <strong>Technical reviewer</strong>
+        <em>Real-World Next.js book by Michele Riva</em>
+      </li>
+      <li>
+        2019	
+        <strong>Tech Leadership Training</strong>
+        <em>FB Developer Circles / Codemotion</em>
+      </li>
+      <li>
+        2017	
+        <strong>Certified Scrum Master</strong>
+        <em>Scrum Alliance, London</em>
+      </li>
+      <li>
+        2017	
+        <strong>Agile bootcamp training</strong>
+        <em>Deloitte, Milan</em>
+      </li>
+
+    </ul>
+    <h3>Skills</h3>
+
+    <p><strong>Programming languages, frameworks and platforms:</strong>
+      Javascript, Java/Kotlin Android SDK, Flutter, React, RxJS, NextJS, Java/JEE; Node.js; learning Elixir; basic knowledge of main cloud platforms (AWS, GCP), Netlify</p>
+    <p><strong>Databases:</strong>	SQL, Oracle, MySql; ORM (JPA, Hibernate, MyBatis); basic knowledge of noSQL DBMS</p>
+
+    <p><strong>Development tools:</strong>	git, GitHub actions, npm, yarn, maven, gradle, Docker; Android Studio, vim; Atlassian suite (Jira, BitBucket, Confluence, Bamboo)</p>
+
+    <h3>Links</h3>
+    <ul>
+      <li>
+        <a href="https://www.linkedin.com/in/sarnataro" target="_blank">
+          <strong>LinkedIn</strong>
+          <span>linkedin.com/in/sarnataro</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/csarnataro" target="_blank">
+          <strong>Github</strong>
+          <span>github.com/csarnataro</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://csarnataro.github.io/" target="_blank">
+          <strong>Web</strong>
+          <span>csarnataro.github.io</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://fosstodon.org/@csarnataro" target="_blank"  rel="me">
+          <strong>Mastodon</strong>
+          <span>fosstodon.org/@csarnataro</span>
+        </a>
+      </li>
     </ul>
   </body>
 </html>
